@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkijBashir Group - Foreign Tour Portal</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="portalFrame" allow="camera"></iframe>
+
+  <script>
+    // PASTE YOUR GOOGLE APPS SCRIPT WEB APP DEPLOYMENT EXEC URL HERE
+    const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw2ifcZFREUQnflQbtVNeEDzmX1cSSs_gg7JUCCQEHCdOg8ririKUqvLPcCoxWZvLBoMw/exec";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const route = urlParams.get('route');
+
+    const frame = document.getElementById('portalFrame');
+
+    if (route === 'admin') {
+      frame.src = APPS_SCRIPT_WEB_APP_URL + "?page=admin";
+    } else {
+      frame.src = APPS_SCRIPT_WEB_APP_URL + "?page=user";
+    }
+  </script>
+</body>
+</html>
